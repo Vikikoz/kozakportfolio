@@ -58,7 +58,7 @@
   /* 📏 ÉLÉMENTS DÉCORATIFS
      Traits, bordures et séparateurs */
   --divider-width: 100%;        /* Largeur du trait de section (toute la largeur) */
-  --divider-height: 2px;        /* Épaisseur du trait */
+  --divider-height: 3px;        /* Épaisseur du trait */
   --divider-color: var(--color-primary); /* Couleur du trait (accent) */
 
 }
