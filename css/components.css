@@ -19,14 +19,16 @@
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.9) 10%,
-    rgba(0, 0, 0, 0.4) 20%,
-    rgba(0, 0, 0, 0.1) 30%,
-    rgba(0, 0, 0, 0) 40%,
-    rgba(0, 0, 0, 0) 60%,
-    rgba(0, 0, 0, 0.1) 70%,
-    rgba(0, 0, 0, 0.3) 80%,
-    rgba(0, 0, 0, 0.7) 90%,
+    rgba(0, 0, 0, 0.9) 3%,
+    rgba(0, 0, 0, 0.7) 6%,
+    rgba(0, 0, 0, 0.4) 9%,
+    rgba(0, 0, 0, 0.1) 12%,
+    rgba(0, 0, 0, 0) 15%,
+    rgba(0, 0, 0, 0) 85%,
+    rgba(0, 0, 0, 0.1) 88%,
+    rgba(0, 0, 0, 0.4) 91%,
+    rgba(0, 0, 0, 0.7) 94%,
+    rgba(0, 0, 0, 0.9) 97%,
     rgba(0, 0, 0, 1) 100%
   );
 }
@@ -49,18 +51,18 @@
 .hero-content {
   position: relative;
   z-index: 10; /* Plus haut que les superpositions */
-  animation: fadeInUp 1s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
 }
 
-/* Animation d'apparition du contenu */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+/* Décalage vers le haut seulement sur mobile */
+@media (max-width: 768px) {
+  .hero-content {
+    transform: translateY(-10vh);
   }
 }
 
@@ -121,7 +123,7 @@
 /* Responsive pour mobile */
 @media (max-width: 768px) {
   .scroll-indicator {
-    bottom: 40px;
+    bottom: 150px; /* Diminué à 150px (200px - 50px) pour optimiser la position */
   }
   
   .scroll-arrow {
@@ -132,7 +134,7 @@
   .scroll-arrow::before {
     border-bottom: 5px solid var(--color-text-primary);
     border-right: 5px solid var(--color-text-primary);
-    transform: translate(-50%, -50%) rotate(135deg);
+    transform: translate(-50%, -50%) rotate(45deg);
   }
 }
 
@@ -154,6 +156,40 @@
 
 .btn:hover {
   background-color: #0056b3;
+}
+
+/* Bouton de téléchargement CV avec le même style que show-more-btn */
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  background: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--text-base);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 0;
+  text-decoration: none;
+}
+
+.cv-download-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.cv-download-btn svg {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.cv-download-btn:hover svg {
+  transform: translateY(2px);
 }
 
 .card {
@@ -340,7 +376,7 @@
   content: "";
   width: 20px;
   height: 20px;
-  background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0' y='0' viewBox='0 0 128 128' xml:space='preserve'%3E%3Cpath d='m128 62.6-38.3 6.6c-9.9 1.7-17.6 9.6-18.9 19.6L65.4 128l-6.6-38.3c-1.7-9.9-9.6-17.6-19.6-18.9L0 65.4l38.3-6.6c9.9-1.7 17.6-9.6 18.9-19.6L62.6 0l6.6 38.3c1.7 9.9 9.6 17.6 19.6 18.9l39.2 5.4z' fill='%230077ff'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0' y='0' viewBox='0 0 128 128' xml:space='preserve'%3E%3Cpath d='m128 62.6-38.3 6.6c-9.9 1.7-17.6 9.6-18.9 19.6L65.4 128l-6.6-38.3c-1.7-9.9-9.6-17.6-19.6-18.9L0 65.4l38.3-6.6c9.9-1.7 17.6-9.6 18.9-19.6L62.6 0l6.6 38.3c1.7 9.9 9.6 17.6 19.6 18.9l39.2 5.4z' fill='%236CB1FF'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -469,11 +505,18 @@
 }
 
 .project-description {
-  color: var(--color-text-primary);
-  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
   line-height: var(--line-height-normal);
   margin-bottom: var(--space-md);
   flex-grow: 1;
+}
+
+/* Taille normale pour PC */
+@media (min-width: 769px) {
+  .project-description {
+    font-size: var(--text-base);
+  }
 }
 
 .project-labels {
@@ -485,14 +528,83 @@
 
 .project-label {
   background: transparent;
-  border: 1px solid var(--color-primary);
+  border: none;
   color: var(--color-primary);
-  font-size: var(--text-sm);
+  font-size: 0.66rem;
   font-weight: var(--font-weight-medium);
-  padding: 4px 8px;
+  padding: 1px 3px;
   border-radius: 0;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+/* Tailles normales pour PC */
+@media (min-width: 769px) {
+  .project-label {
+    font-size: 0.77rem;
+    padding: 4px 8px;
+  }
+}
+
+/* Couleurs flashy spécifiques par technologie */
+.project-label--web {
+  color: #FF6B35;
+}
+
+.project-label--react {
+  color: #61DAFB;
+}
+
+.project-label--design {
+  color: #FF1493;
+}
+
+.project-label--sig {
+  color: #32CD32;
+}
+
+.project-label--python {
+  color: #FFD700;
+}
+
+.project-label--data {
+  color: #9932CC;
+}
+
+.project-label--mobile {
+  color: #FF4500;
+}
+
+.project-label--javascript {
+  color: #F7DF1E;
+}
+
+.project-label--api {
+  color: #00CED1;
+}
+
+.project-label--vue {
+  color: #4FC08D;
+}
+
+.project-label--gis {
+  color: #228B22;
+}
+
+.project-label--analyse {
+  color: #DC143C;
+}
+
+.project-label--fullstack {
+  color: #8A2BE2;
+}
+
+.project-label--nodejs {
+  color: #68A063;
+}
+
+.project-label--database {
+  color: #FF6347;
 }
 
 /* 🔽 SYSTÈME AFFICHER PLUS POUR PROJETS */

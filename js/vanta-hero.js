@@ -23,10 +23,10 @@ const VANTA_PORTFOLIO_CONFIG = {
   lowlightColor: 0x4869ff,   // Bleu clair
   baseColor: 0x000000,       // Noir (fond)
   
-  // Paramètres d'effet optimisés
-  blurFactor: 0.85,  // Facteur de flou (0.0 à 1.0)
-  zoom: 0.65,        // Niveau de zoom (plus petit = plus de détails)
-  speed: 2.2         // Vitesse d'animation (modérée pour un portfolio professionnel)
+  // Paramètres d'effet optimisés pour mobile et desktop
+  blurFactor: isMobileDevice() ? 0.6 : 0.85,  // Moins de flou sur mobile
+  zoom: isMobileDevice() ? 0.8 : 0.65,        // Zoom plus important sur mobile
+  speed: isMobileDevice() ? 1.5 : 2.2         // Vitesse réduite sur mobile
 };
 
 // ===== DÉTECTION MOBILE =====
@@ -92,18 +92,17 @@ function handleVantaResize() {
 function initPortfolioBackground() {
   console.log('Portfolio: Initialisation de l\'effet background...');
   
-  // Vérifier si on est sur mobile
-  if (isMobileDevice()) {
-    console.log('Portfolio: Appareil mobile détecté, application du fallback');
-    applyMobileFallback();
+  // Toujours essayer d'initialiser Vanta (mobile et desktop)
+  console.log('Portfolio: Initialisation de Vanta pour tous les appareils');
+  const effect = initPortfolioVanta();
+  
+  if (effect) {
+    // Gestion du redimensionnement
+    handleVantaResize();
   } else {
-    console.log('Portfolio: Appareil desktop détecté, initialisation de Vanta');
-    const effect = initPortfolioVanta();
-    
-    if (effect) {
-      // Gestion du redimensionnement
-      handleVantaResize();
-    }
+    // En cas d'échec, appliquer le fallback
+    console.log('Portfolio: Échec de Vanta, application du fallback');
+    applyMobileFallback();
   }
   
   console.log('Portfolio: Initialisation background terminée');
