@@ -1,0 +1,64 @@
+/* css/variables.css */
+/* ========================================
+   VARIABLES CSS GLOBALES — DESIGN SYSTEM
+   Tout ce qui est personnalisable ici
+   ======================================== */
+
+:root {
+
+  /* 🎨 COULEURS PRINCIPALES
+     Tu peux modifier l'identité visuelle globale ici */
+  --color-primary: #0077ff;     /* Couleur principale (boutons, liens, accents) */
+  --color-text-primary: #EDEDED;   /* Texte principal du site */
+  --color-text-secondary: #A3A3A3; /* Textes secondaires (descriptions, sous-textes) */
+  --color-bg: #000000;          /* Couleur de fond du site */
+  --color-light: #f9f9f9;       /* Fond clair pour sections secondaires */
+
+  /* ✍️ TYPOGRAPHIES
+     Gère ici les polices du site */
+  --font-base: 'Inter', sans-serif;         /* Police par défaut (corps de texte) */
+  --font-heading: 'Inter', sans-serif;      /* Police pour les titres et logo */
+
+  /* 🎭 PARAMÈTRES DE POLICES */
+  --font-weight-light: 300;     /* Texte léger */
+  --font-weight-normal: 400;    /* Texte normal */
+  --font-weight-medium: 500;    /* Texte moyen */
+  --font-weight-semibold: 600;  /* Texte semi-gras */
+  --font-weight-bold: 800;      /* Texte gras */
+
+  --letter-spacing-tight: -0.04em;  /* Espacement serré pour titres */
+  --letter-spacing-normal: 0;        /* Espacement normal */
+  --letter-spacing-wide: 0.025em;    /* Espacement large pour boutons */
+
+  --line-height-tight: 1.2;    /* Interligne serré pour titres */
+  --line-height-normal: 1.6;   /* Interligne normal pour texte */
+  --line-height-loose: 1.8;    /* Interligne large pour lecture */
+
+  /* 🔠 TAILLES DE TEXTE
+     Hiérarchie typographique standard (responsive par défaut) */
+  --text-sm: 0.875rem;  /* Petit texte (ex : mentions légales, infos secondaires) */
+  --text-base: 1rem;    /* Texte de base (paragraphes, liens, contenu standard) */
+  --text-lg: 1.5rem;    /* Sous-titres, titres de blocs */
+  --text-xl: 2rem;      /* Titres principaux de section */
+
+  /* 📏 ESPACEMENTS
+     Pour marges, paddings, gaps entre éléments (basé sur une grille 8px) */
+  --space-xs: 0.5rem;   /* 8px — petits espacements (boutons, listes) */
+  --space-sm: 1rem;     /* 16px — espacement standard */
+  --space-md: 2rem;     /* 32px — espacement entre sections ou gros éléments */
+  --space-lg: 4rem;     /* 64px — grands espacements verticaux */
+  --space-xl: 6rem;     /* 96px — très grands espacements */
+
+  /* 📐 LAYOUT GLOBAL
+     Largeur max du contenu central (container) */
+  --container-width: 1000px; /* Largeur maximale du bloc central (desktop) */
+  --container-padding: var(--space-md); /* Marges latérales du container (32px) */
+  --container-padding-mobile: var(--space-sm); /* Marges sur mobile (16px) */
+
+  /* 📏 ÉLÉMENTS DÉCORATIFS
+     Traits, bordures et séparateurs */
+  --divider-width: 100%;        /* Largeur du trait de section (toute la largeur) */
+  --divider-height: 2px;        /* Épaisseur du trait */
+  --divider-color: var(--color-primary); /* Couleur du trait (accent) */
+
+}

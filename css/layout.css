@@ -1,0 +1,50 @@
+/* css/layout.css GRILLE CONTAINER SECTIONS*/
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Version responsive pour mobile */
+@media (max-width: 768px) {
+  .container {
+    padding-left: var(--container-padding-mobile);
+    padding-right: var(--container-padding-mobile);
+  }
+}
+
+.section {
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-lg);
+}
+
+/* Section Hero plein écran */
+.section--hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.section__title {
+  font-size: var(--text-xl);
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
