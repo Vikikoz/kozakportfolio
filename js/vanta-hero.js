@@ -13,20 +13,20 @@ const VANTA_PORTFOLIO_CONFIG = {
   touchControls: true,    // Interaction tactile (mobile)
   gyroControls: false,    // Gyroscope (désactivé pour les performances)
   
-  // Dimensions minimales
-  minHeight: 200.00,
-  minWidth: 200.00,
+  // Dimensions pour couvrir toute la section sans contraintes
+  scale: 1.0,            // Échelle à 100%
+  scaleMobile: 1.0,      // Échelle mobile à 100%
   
-  // Palette de couleurs adaptée au portfolio (format hexadécimal 0x)
+  // Palette de couleurs identique sur tous les appareils (format hexadécimal 0x)
   highlightColor: 0x120027,  // Violet foncé (correspondant à votre thème)
   midtoneColor: 0x2026f6,    // Bleu (couleur primaire de votre portfolio)
   lowlightColor: 0x4869ff,   // Bleu clair
-  baseColor: 0x000000,       // Noir (fond)
+  baseColor: 0x000000,       // Noir absolu le plus profond (RGB: 0,0,0)
   
-  // Paramètres d'effet optimisés pour mobile et desktop
-  blurFactor: isMobileDevice() ? 0.6 : 0.85,  // Moins de flou sur mobile
-  zoom: 0.65,                                  // Zoom identique sur mobile et PC
-  speed: isMobileDevice() ? 1.5 : 2.2         // Vitesse réduite sur mobile
+  // Paramètres d'effet identiques sauf le zoom
+  blurFactor: 0.85,                               // Identique sur PC et mobile
+  zoom: isMobileDevice() ? 1.3 : 0.65,           // Mobile: 2x plus élevé (1.3 vs 0.65)
+  speed: 2.2                                      // Identique sur PC et mobile
 };
 
 // ===== DÉTECTION MOBILE =====
