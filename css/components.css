@@ -49,6 +49,33 @@
   );
 }
 
+/* Assurer la compatibilité mobile pour le gradient */
+@media (max-width: 768px) {
+  .vanta-gradient {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.95) 3%,
+      rgba(0, 0, 0, 0.85) 6%,
+      rgba(0, 0, 0, 0.7) 9%,
+      rgba(0, 0, 0, 0.5) 12%,
+      rgba(0, 0, 0, 0.3) 15%,
+      rgba(0, 0, 0, 0.15) 18%,
+      rgba(0, 0, 0, 0.05) 21%,
+      rgba(0, 0, 0, 0) 25%,
+      rgba(0, 0, 0, 0) 75%,
+      rgba(0, 0, 0, 0.05) 79%,
+      rgba(0, 0, 0, 0.15) 82%,
+      rgba(0, 0, 0, 0.3) 85%,
+      rgba(0, 0, 0, 0.5) 88%,
+      rgba(0, 0, 0, 0.7) 91%,
+      rgba(0, 0, 0, 0.85) 94%,
+      rgba(0, 0, 0, 0.95) 97%,
+      rgba(0, 0, 0, 1) 100%
+    );
+  }
+}
+
 /* Masque de flou pour adoucir l'effet */
 .vanta-mask {
   position: absolute;
