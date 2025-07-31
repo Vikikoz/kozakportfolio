@@ -25,7 +25,7 @@ const VANTA_PORTFOLIO_CONFIG = {
   
   // Paramètres d'effet optimisés pour mobile et desktop
   blurFactor: isMobileDevice() ? 0.6 : 0.85,  // Moins de flou sur mobile
-  zoom: isMobileDevice() ? 0.8 : 0.65,        // Zoom plus important sur mobile
+  zoom: 0.65,                                  // Zoom identique sur mobile et PC
   speed: isMobileDevice() ? 1.5 : 2.2         // Vitesse réduite sur mobile
 };
 
