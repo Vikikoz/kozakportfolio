@@ -5,15 +5,29 @@
   position: relative;
   overflow: hidden;
   min-height: 100vh;
+  padding: 0; /* Supprimer tout padding */
+  margin: 0;  /* Supprimer tout margin */
+  width: 100vw; /* Forcer la largeur à 100% de la viewport */
+  margin-left: calc(-50vw + 50%); /* Centrer en pleine largeur */
 }
 
-/* Élément Vanta - couvre toute la section */
+/* Élément Vanta - arrière-plan de la section */
 #vanta-bg {
   position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
+  top: -10px !important;        /* Débordement plus important pour éliminer toute bordure */
+  left: -10px !important;       /* Débordement plus important pour éliminer toute bordure */
+  width: calc(100% + 20px) !important;  /* Largeur étendue avec marge importante */
+  height: calc(100% + 20px) !important; /* Hauteur étendue avec marge importante */
+  z-index: 1;
+}
+
+/* Alternative avec classe pour plus de flexibilité */
+.vanta-background {
+  position: absolute;
+  top: -10px;                  /* Débordement plus important pour éliminer toute bordure */
+  left: -10px;                 /* Débordement plus important pour éliminer toute bordure */
+  width: calc(100% + 20px);    /* Largeur étendue avec marge importante */
+  height: calc(100% + 20px);   /* Hauteur étendue avec marge importante */
   z-index: 1;
 }
 

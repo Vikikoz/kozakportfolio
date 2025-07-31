@@ -25,7 +25,7 @@ const VANTA_PORTFOLIO_CONFIG = {
   
   // Paramètres d'effet identiques sauf le zoom
   blurFactor: 0.85,                               // Identique sur PC et mobile
-  zoom: isMobileDevice() ? 0.2 : 0.65,           // Mobile: zoom réduit (0.2)
+  zoom: isMobileDevice() ? 0.5 : 0.65,           // PC: 0.65, Mobile: 0.5
   speed: 2.2                                      // Identique sur PC et mobile
 };
 
@@ -117,7 +117,7 @@ window.addEventListener('heroSectionLoaded', function() {
 
 // Fallback : attendre que toutes les sections HTML soient chargées via include-html
 function waitForHeroSection() {
-  const heroSection = document.getElementById('vanta-bg');
+  const heroSection = document.getElementById('hero');
   
   if (heroSection) {
     // Section trouvée, initialiser Vanta
