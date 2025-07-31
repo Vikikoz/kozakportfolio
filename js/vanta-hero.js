@@ -25,7 +25,7 @@ const VANTA_PORTFOLIO_CONFIG = {
   
   // Paramètres d'effet identiques sauf le zoom
   blurFactor: 0.85,                               // Identique sur PC et mobile
-  zoom: isMobileDevice() ? 1.3 : 0.65,           // Mobile: 2x plus élevé (1.3 vs 0.65)
+  zoom: 0.65,                                     // Zoom identique sur PC et mobile
   speed: 2.2                                      // Identique sur PC et mobile
 };
 
